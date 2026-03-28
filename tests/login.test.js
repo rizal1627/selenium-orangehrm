@@ -6,7 +6,7 @@ const loginData = require('../testData/loginData.json');
 const { takeScreenshot } = require('../utils/screenshot');
 
 
-describe("OrangeHRM Login Test Suite", function () {
+describe("OrangeHRM Login Test Suite @regression", function () {
 
     let driver;
     let loginPage;
@@ -28,9 +28,14 @@ describe("OrangeHRM Login Test Suite", function () {
 
     loginData.forEach((data) => {
 
-        it(`Login test with username: ${data.username}`, async function () {
+        it(`Login test with username: ${data.username} @smoke @login`, async function () {
 
             await loginPage.login(data.username, data.password);
+            // await loginPage.login(
+            //     process.env.USERNAME,
+            //     process.env.PASSWORD
+            // );
+
 
             if (data.expected === "success") {
                 const result = await dashboardPage.isDashboardDisplayed();
@@ -39,6 +44,12 @@ describe("OrangeHRM Login Test Suite", function () {
                 const errorMsg = await loginPage.getErrorMessage();
                 expect(errorMsg).to.include(data.expected);
             }
+        });
+        it("Login dengan password salah @regression @login", async function () {
+            await loginPage.login("Admin", "wrongpass");
+            const errorMsg = await loginPage.getErrorMessage();
+            expect(errorMsg).to.include("Invalid");
+
         });
 
     });

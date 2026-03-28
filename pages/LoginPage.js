@@ -1,6 +1,7 @@
 const { By } = require('selenium-webdriver');
 const BasePage = require('./BasePage');
 const config = require('../config/config');
+// const env = require("../../config/env.config");
 
 class LoginPage extends BasePage {
 
@@ -10,10 +11,14 @@ class LoginPage extends BasePage {
         this.passwordField = By.name('password');
         this.loginButton = By.css('button[type="submit"]');
         this.errorMessage = By.css('.oxd-alert-content-text');
+
+        // this.driver = driver;
+        // this.url = `${env.baseUrl}/web/index.php/auth/login`;
     }
 
     async open() {
         await this.visit(config.baseUrl);
+        // await this.driver.get(this.url);
     }
 
     async login(username, password) {

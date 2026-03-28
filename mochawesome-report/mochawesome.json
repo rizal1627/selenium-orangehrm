@@ -5,20 +5,20 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2026-02-18T15:16:59.387Z",
-    "end": "2026-02-18T15:17:54.540Z",
-    "duration": 55153,
-    "testsRegistered": 2,
-    "passPercent": 100,
+    "start": "2026-02-21T01:27:57.325Z",
+    "end": "2026-02-21T01:28:32.923Z",
+    "duration": 35598,
+    "testsRegistered": 4,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 0,
-    "hasSkipped": false
+    "skipped": 2,
+    "hasSkipped": true
   },
   "results": [
     {
-      "uuid": "c81e9173-deb7-45b9-ba16-3c7db1a29092",
+      "uuid": "bb95fe66-4796-4242-83f4-47f9c1806b20",
       "title": "",
       "fullFile": "/Users/rizalsetioaji/Desktop/QA TestAutomation/selenium-javascript/demoqa-testing/tests/login.test.js",
       "file": "/tests/login.test.js",
@@ -27,16 +27,16 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0e7eba5c-48e3-4c27-ba36-546195c12541",
-          "title": "OrangeHRM Login Test Suite",
+          "uuid": "76c7b76f-1c59-44d4-aa63-50b04feaa79c",
+          "title": "OrangeHRM Login Test Suite @regression",
           "fullFile": "/Users/rizalsetioaji/Desktop/QA TestAutomation/selenium-javascript/demoqa-testing/tests/login.test.js",
           "file": "/tests/login.test.js",
           "beforeHooks": [
             {
-              "title": "\"before each\" hook in \"OrangeHRM Login Test Suite\"",
-              "fullTitle": "OrangeHRM Login Test Suite \"before each\" hook in \"OrangeHRM Login Test Suite\"",
+              "title": "\"before each\" hook in \"OrangeHRM Login Test Suite @regression\"",
+              "fullTitle": "OrangeHRM Login Test Suite @regression \"before each\" hook in \"OrangeHRM Login Test Suite @regression\"",
               "timedOut": false,
-              "duration": 17785,
+              "duration": 9571,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,18 +45,18 @@
               "context": null,
               "code": "driver = await createDriver();\nloginPage = new LoginPage(driver);\ndashboardPage = new DashboardPage(driver);\nawait loginPage.open();",
               "err": {},
-              "uuid": "c421df23-a4e6-4a0a-889f-2506f7c8602a",
-              "parentUUID": "0e7eba5c-48e3-4c27-ba36-546195c12541",
+              "uuid": "a2cc6007-fc4b-461b-85d0-89e1ca4aae00",
+              "parentUUID": "76c7b76f-1c59-44d4-aa63-50b04feaa79c",
               "isHook": true,
               "skipped": false
             }
           ],
           "afterHooks": [
             {
-              "title": "\"after each\" hook in \"OrangeHRM Login Test Suite\"",
-              "fullTitle": "OrangeHRM Login Test Suite \"after each\" hook in \"OrangeHRM Login Test Suite\"",
+              "title": "\"after each\" hook in \"OrangeHRM Login Test Suite @regression\"",
+              "fullTitle": "OrangeHRM Login Test Suite @regression \"after each\" hook in \"OrangeHRM Login Test Suite @regression\"",
               "timedOut": false,
-              "duration": 52,
+              "duration": 56,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,62 +65,101 @@
               "context": null,
               "code": "if (this.currentTest.state === 'failed') {\nawait takeScreenshot(driver, this.currentTest.title);\n}\nawait driver.quit();",
               "err": {},
-              "uuid": "2701f6af-69fa-4d8d-bfb8-f08401d47bad",
-              "parentUUID": "0e7eba5c-48e3-4c27-ba36-546195c12541",
+              "uuid": "faf05c74-419d-47ec-9c1e-070123bff074",
+              "parentUUID": "76c7b76f-1c59-44d4-aa63-50b04feaa79c",
               "isHook": true,
               "skipped": false
             }
           ],
           "tests": [
             {
-              "title": "Login test with username: Admin",
-              "fullTitle": "OrangeHRM Login Test Suite Login test with username: Admin",
+              "title": "Login test with username: Admin @smoke @login",
+              "fullTitle": "OrangeHRM Login Test Suite @regression Login test with username: Admin @smoke @login",
               "timedOut": false,
-              "duration": 7542,
+              "duration": 4295,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "await loginPage.login(data.username, data.password);\n            if (data.expected === \"success\") {\n                const result = await dashboardPage.isDashboardDisplayed();\n                expect(result).to.be.true;\n            } else {\n                const errorMsg = await loginPage.getErrorMessage();\n                expect(errorMsg).to.include(data.expected);\n            }",
+              "code": "await loginPage.login(data.username, data.password);\n            // await loginPage.login(\n            //     process.env.USERNAME,\n            //     process.env.PASSWORD\n            // );\n            if (data.expected === \"success\") {\n                const result = await dashboardPage.isDashboardDisplayed();\n                expect(result).to.be.true;\n            } else {\n                const errorMsg = await loginPage.getErrorMessage();\n                expect(errorMsg).to.include(data.expected);\n            }",
               "err": {},
-              "uuid": "0bbf80cc-8661-4778-bb61-eb929d82fce6",
-              "parentUUID": "0e7eba5c-48e3-4c27-ba36-546195c12541",
+              "uuid": "a7f3e73a-7a0b-4b3f-8574-d21699d8737b",
+              "parentUUID": "76c7b76f-1c59-44d4-aa63-50b04feaa79c",
               "isHook": false,
               "skipped": false
             },
             {
-              "title": "Login test with username: Admin",
-              "fullTitle": "OrangeHRM Login Test Suite Login test with username: Admin",
+              "title": "Login dengan password salah @regression @login",
+              "fullTitle": "OrangeHRM Login Test Suite @regression Login dengan password salah @regression @login",
               "timedOut": false,
-              "duration": 5614,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginPage.login(\"Admin\", \"wrongpass\");\nconst errorMsg = await loginPage.getErrorMessage();\nexpect(errorMsg).to.include(\"Invalid\");",
+              "err": {},
+              "uuid": "41f03c46-b0dc-4f72-95ee-1df1bc52f5d7",
+              "parentUUID": "76c7b76f-1c59-44d4-aa63-50b04feaa79c",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Login test with username: Admin @smoke @login",
+              "fullTitle": "OrangeHRM Login Test Suite @regression Login test with username: Admin @smoke @login",
+              "timedOut": false,
+              "duration": 4404,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "await loginPage.login(data.username, data.password);\n            if (data.expected === \"success\") {\n                const result = await dashboardPage.isDashboardDisplayed();\n                expect(result).to.be.true;\n            } else {\n                const errorMsg = await loginPage.getErrorMessage();\n                expect(errorMsg).to.include(data.expected);\n            }",
+              "code": "await loginPage.login(data.username, data.password);\n            // await loginPage.login(\n            //     process.env.USERNAME,\n            //     process.env.PASSWORD\n            // );\n            if (data.expected === \"success\") {\n                const result = await dashboardPage.isDashboardDisplayed();\n                expect(result).to.be.true;\n            } else {\n                const errorMsg = await loginPage.getErrorMessage();\n                expect(errorMsg).to.include(data.expected);\n            }",
               "err": {},
-              "uuid": "7936a193-ad1b-43bb-8aba-985f9423276e",
-              "parentUUID": "0e7eba5c-48e3-4c27-ba36-546195c12541",
+              "uuid": "175f6600-c512-4d88-b4f2-5ca8be07f855",
+              "parentUUID": "76c7b76f-1c59-44d4-aa63-50b04feaa79c",
               "isHook": false,
               "skipped": false
+            },
+            {
+              "title": "Login dengan password salah @regression @login",
+              "fullTitle": "OrangeHRM Login Test Suite @regression Login dengan password salah @regression @login",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginPage.login(\"Admin\", \"wrongpass\");\nconst errorMsg = await loginPage.getErrorMessage();\nexpect(errorMsg).to.include(\"Invalid\");",
+              "err": {},
+              "uuid": "3e9c214a-b9bb-45a9-be49-38f10ed32eaf",
+              "parentUUID": "76c7b76f-1c59-44d4-aa63-50b04feaa79c",
+              "isHook": false,
+              "skipped": true
             }
           ],
           "suites": [],
           "passes": [
-            "0bbf80cc-8661-4778-bb61-eb929d82fce6",
-            "7936a193-ad1b-43bb-8aba-985f9423276e"
+            "a7f3e73a-7a0b-4b3f-8574-d21699d8737b",
+            "175f6600-c512-4d88-b4f2-5ca8be07f855"
           ],
           "failures": [],
           "pending": [],
-          "skipped": [],
-          "duration": 13156,
+          "skipped": [
+            "41f03c46-b0dc-4f72-95ee-1df1bc52f5d7",
+            "3e9c214a-b9bb-45a9-be49-38f10ed32eaf"
+          ],
+          "duration": 8699,
           "root": false,
           "rootEmpty": false,
-          "_timeout": 30000
+          "_timeout": 60000
         }
       ],
       "passes": [],
@@ -130,7 +169,7 @@
       "duration": 0,
       "root": true,
       "rootEmpty": true,
-      "_timeout": 30000
+      "_timeout": 60000
     }
   ],
   "meta": {
